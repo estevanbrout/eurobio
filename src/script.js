@@ -97,9 +97,9 @@ class SinCurve1 extends THREE.Curve {
 
   getPoint ( t, target ) {
 
-    var ty = t * 10;
-    var tx = Math.sin( 2.5 * Math.PI * t );
-    var tz = Math.cos( 2.5 * Math.PI * t );
+    var ty = t * 5;
+    var tx = Math.sin( 1 * Math.PI * t );
+    var tz = Math.cos( 1 * Math.PI * t );
 
     var point = new THREE.Vector3( tx, ty, tz ).multiplyScalar( this.scale );
 
@@ -159,7 +159,7 @@ class SinCurve3 extends THREE.Curve {
 }
 
 var curve1 = new SinCurve1( 4.5 );
-var curve2 = new SinCurve2( 6 );
+var curve2 = new SinCurve2( 5 );
 var curve3 = new SinCurve3( 4 );
 
 // visual for curve
@@ -177,7 +177,7 @@ class DNA extends THREE.Group {
 
     super();
 
-    var cylLength = 2.25;
+    var cylLength = 2;
     var cylGeo = new THREE.CylinderBufferGeometry( .1, .1, cylLength / 2, 16, 1, true );
     var cylinder = new THREE.Mesh( cylGeo, fresnelMat );
     cylinder.position.y = cylLength / 4;
@@ -234,20 +234,20 @@ class DNA extends THREE.Group {
 
 // -------------------
 
-var dna1 = window.dna1 = new DNA( curve1, 95 );
+var dna1 = window.dna1 = new DNA( curve1, 50 );
 scene.add( dna1 );
-dna1.position.set( 1, -21, 13 );
+dna1.position.set( 1, -10, 0 );
 
 // visual for curve
 // dna1.add( line );
 
 var dna2 = new DNA( curve2, 100 );
-scene.add( dna2 );
+//scene.add( dna2 );
 // dna2.rotation.y = - Math.PI / 2;
 dna2.position.set( 10, -30, -4 );
 
 var dna3 = new DNA( curve3, 100 );
-scene.add( dna3 );
+//scene.add( dna3 );
 dna3.position.set( -10, -28, -4 );
 
 
@@ -342,11 +342,12 @@ function loop() {
   // update camera and target position
 
   //camera.position.x = - Math.sin( 2 * Math.PI * playhead ) * 25;
-  //camera.position.z = Math.cos( 2 * Math.PI * playhead ) * 50;
-  camera.position.y = Math.sin( 2 * 2 * Math.PI * playhead ) * 10;
+  camera.position.z = Math.cos( 2 * Math.PI * playhead ) * 50;
+  camera.position.z = 25;
+  camera.position.y = Math.sin( 2 * 2 * Math.PI * playhead ) * 1;
 
-  target.x = - Math.sin( 2 * Math.PI * playhead ) * 10;
-  target.z = Math.cos( 2 * Math.PI * playhead ) * 10;
+  target.x = - Math.sin( 2 * Math.PI * playhead ) * 2;
+ target.z = Math.cos( 2 * Math.PI * playhead ) * 10;
 
   camera.lookAt( target );
 
