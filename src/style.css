@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+
+html { overflow: hidden; }
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	line-height: 20px;
+	color: #fff;
+	background: #0D1528;
+}
